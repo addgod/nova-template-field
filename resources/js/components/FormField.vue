@@ -25,17 +25,6 @@
 
         props: ['resourceName', 'resourceId', 'field'],
 
-        data: function () {
-            return {
-                component: null,
-                index: 0,
-            };
-        },
-
-        mounted() {
-            this.findComponent(this.$root);
-        },
-
         methods: {
             /**
              * Update the field's internal value.
@@ -43,24 +32,8 @@
             handleChange(value) {
                 if (value) {
                     Nova.$emit(this.field.fillField + '-value', this.field.templates[value]);
-                    this.component.field.value = this.field.templates[value];
-                    this.$nextTick(() => this.component.$forceUpdate());
-                    console.log(this.component);
                 }
-
             },
-
-            findComponent(root) {
-                if (this.component) {
-                    return;
-                }
-                root.$children.forEach(component => {
-                    if (component.field && component.field.attribute === this.field.fillField) {
-                        this.component = component;
-                    }
-                    this.findComponent(component);
-                });
-            }
         },
 
         computed: {
