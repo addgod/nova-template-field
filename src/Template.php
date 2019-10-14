@@ -8,6 +8,20 @@ use Laravel\Nova\Fields\Select;
 class Template extends Select
 {
     /**
+     * Do not show this component on index pages.
+     *
+     * @var bool
+     */
+    public $showOnIndex = false;
+
+    /**
+     * Do not show this component on detail.
+     *
+     * @var bool
+     */
+    public $showOnDetail = false;
+
+    /**
      * The field's component.
      *
      * @var string
