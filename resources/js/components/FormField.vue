@@ -31,8 +31,8 @@
              */
             fill(formData) {
               formData.append(this.field.attribute, this.value || '')
-            }
-        
+            },
+
             /**
              * Update the field's internal value.
              */
